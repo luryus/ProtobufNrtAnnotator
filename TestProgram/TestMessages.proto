@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+import "google/protobuf/wrappers.proto";
+
+package TestProgram.Protos;
+
+message Child {
+  string name = 1;
+  google.protobuf.StringValue nickname = 2;
+}
+
+message Parent {
+  Child child = 1;
+}
