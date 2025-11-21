@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package ProtobufNullificator.Tests.Protos;
+
+import "google/protobuf/wrappers.proto";
+
+message CollectionsMessage {
+  map<string, string> string_map = 1;
+  map<int32, string> int_string_map = 2;
+  repeated string repeated_string = 3;
+  repeated int32 repeated_int = 4;
+  repeated CollectionsMessage recursive_repeated = 5;
+  repeated google.protobuf.StringValue repeated_string_value = 6;
+  repeated google.protobuf.Int32Value repeated_int_value = 7;
+  map<string, google.protobuf.StringValue> string_value_map = 8;
+  repeated bytes repeated_bytes = 9;
+}

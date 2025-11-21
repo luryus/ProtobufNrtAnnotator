@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFrameworks>net6.0;net8.0</TargetFrameworks>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    
+    <!-- NuGet Package Metadata -->
+    <PackageId>ProtobufNullificator.PostProcessor</PackageId>
+    <Version>1.1.4</Version>
+    <Authors>luryus</Authors>
+    <Description>MSBuild task that automatically adds nullable reference type annotations to Protobuf-generated C# code.</Description>
+    <PackageTags>protobuf;nullable;roslyn;msbuild;code-generation</PackageTags>
+    <PackageProjectUrl>https://github.com/luryus/ProtobufNullificator</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/luryus/ProtobufNullificator</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    
+    <!-- Package Configuration -->
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <DevelopmentDependency>true</DevelopmentDependency>
+    <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+    
+    <!-- Build Configuration -->
+    <ContinuousIntegrationBuild Condition="'$(CI)' == 'true'">true</ContinuousIntegrationBuild>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Dependencies marked as private - they will be included in the package -->
+    <!-- Using Roslyn 4.12.0 to ensure compatibility with net6.0 target -->
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.12.0" PrivateAssets="all" />
+    <PackageReference Include="Google.Protobuf" Version="3.25.1" PrivateAssets="all" />
+  </ItemGroup>
+
+  <!-- Include the .targets file in the build folder of the package -->
+  <ItemGroup>
+    <None Include="build\ProtobufNullificator.PostProcessor.targets" Pack="true" PackagePath="build\" />
+  </ItemGroup>
+
+  <!-- Include the compiled binaries in the tools folder of the package -->
+  <ItemGroup>
+    <None Include="$(OutputPath)\**\*" Pack="true" PackagePath="tools\" />
+  </ItemGroup>
+
+</Project>

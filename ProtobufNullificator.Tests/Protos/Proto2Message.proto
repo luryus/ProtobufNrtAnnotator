@@ -1,0 +1,10 @@
+syntax = "proto2";
+
+package ProtobufNullificator.Tests.Protos;
+
+message Proto2Message {
+  optional int32 optional_int = 1;
+  required int32 required_int = 2;
+  repeated string repeated_string = 3;
+  optional string optional_string = 4 [default = "default"];
+}

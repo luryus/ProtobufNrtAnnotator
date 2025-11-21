@@ -6,6 +6,9 @@ var parent = new Parent();
 // but the generated code likely doesn't annotate it as nullable.
 Console.WriteLine(parent.Child.Name);
 
+// This should also warn
+parent.Child.Name = null;
+
 // Similarly for the string wrapper
 if (parent.Child != null)
 {

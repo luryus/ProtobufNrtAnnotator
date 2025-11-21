@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package ProtobufNullificator.Tests.Protos;
+
+enum TestEnum {
+  TEST_ENUM_UNSPECIFIED = 0;
+  TEST_ENUM_FIRST = 1;
+  TEST_ENUM_SECOND = 2;
+}
+
+message EnumsMessage {
+  enum NestedEnum {
+    NESTED_ENUM_UNSPECIFIED = 0;
+    NESTED_ENUM_FIRST = 1;
+    NESTED_ENUM_SECOND = 2;
+  }
+
+  TestEnum enum_value = 1;
+  repeated TestEnum repeated_enum = 2;
+
+  NestedEnum nested_enum_value = 3;
+  repeated NestedEnum repeated_nested_enum = 4;
+}

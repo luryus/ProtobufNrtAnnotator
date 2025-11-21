@@ -177,3 +177,9 @@ ServiceFabricBackup/
 
 # Heavy generated files
 *.pb.cs
+
+# Verify
+*.received.*
+*.received/
+
+nupkg
