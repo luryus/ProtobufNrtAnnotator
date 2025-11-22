@@ -40,8 +40,8 @@
 
   <!-- Configure Protobuf generation to output to a specific folder for testing -->
   <ItemGroup>
-    <Protobuf Include="Protos\**\*.proto" OutputDir="$(OutputPath)Generated/%(RecursiveDir)" CompileOutputs="false" GrpcServices="None" />
-    <Protobuf Include="GrpcProtos\**\*.proto" OutputDir="$(OutputPath)Generated/%(RecursiveDir)" CompileOutputs="false" />
+    <Protobuf Include="Protos\**\*.proto" OutputDir="$(OutputPath)Generated\%(RecursiveDir)" CompileOutputs="false" GrpcServices="None" />
+    <Protobuf Include="GrpcProtos\**\*.proto" OutputDir="$(OutputPath)Generated\%(RecursiveDir)" CompileOutputs="false" />
     <Compile Remove="Expected\**\*.cs" />
     <None Include="Expected\**\*.cs" />
   </ItemGroup>

@@ -13,7 +13,7 @@
     <PackageReference Include="Google.Protobuf" />
     <PackageReference Include="Grpc.Tools" PrivateAssets="All" />
 
-    <PackageReference Include="ProtobufNrtAnnotator" Version="0.1.1">
+    <PackageReference Include="ProtobufNrtAnnotator">
       <IncludeAssets>build</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
