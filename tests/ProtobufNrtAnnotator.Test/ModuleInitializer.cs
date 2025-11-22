@@ -1,7 +1,7 @@
 using System.Runtime.CompilerServices;
 using VerifyTests.DiffPlex;
 
-namespace ProtobufNrtAnnotator.Tests;
+namespace ProtobufNrtAnnotator.Test;
 
 public static class ModuleInitializer
 {

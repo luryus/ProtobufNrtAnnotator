@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -36,21 +37,21 @@ public abstract class IntegrationTestBase : IDisposable
     {
         // Parse version from project file
         var csprojContent = await File.ReadAllTextAsync(SourceProjectPath);
-        var versionMatch = Regex.Match(csprojContent, @"<Version>(.*?)</Version>");
+        var versionMatch = Regex.Match(csprojContent, "<Version>(.*?)</Version>");
         if (!versionMatch.Success)
         {
             throw new InvalidOperationException("Could not find version in csproj file");
         }
         
         var baseVersion = versionMatch.Groups[1].Value;
-        var timestamp = DateTime.Now.ToString("yyyyMMddHHmmss");
+        var timestamp = DateTimeOffset.Now.ToString("yyyyMMddHHmmss", CultureInfo.InvariantCulture);
         var fullVersion = $"{baseVersion}-test-{timestamp}";
         
         var result = await RunDotNetCommandAsync(
             "pack",
             Path.GetDirectoryName(SourceProjectPath)!,
             $"-p:Version={fullVersion}",
-            $"-o", PackageOutputDirectory,
+            "-o", PackageOutputDirectory,
             "-c", "Release"
         );
         
@@ -123,9 +124,10 @@ public abstract class IntegrationTestBase : IDisposable
         var outputBuilder = new StringBuilder();
         var errorBuilder = new StringBuilder();
         
-        using var process = new Process { StartInfo = startInfo };
-        
-        process.OutputDataReceived += (sender, e) =>
+        using var process = new Process();
+        process.StartInfo = startInfo;
+
+        process.OutputDataReceived += (_, e) =>
         {
             if (e.Data != null)
             {
@@ -133,7 +135,7 @@ public abstract class IntegrationTestBase : IDisposable
             }
         };
         
-        process.ErrorDataReceived += (sender, e) =>
+        process.ErrorDataReceived += (_, e) =>
         {
             if (e.Data != null)
             {
