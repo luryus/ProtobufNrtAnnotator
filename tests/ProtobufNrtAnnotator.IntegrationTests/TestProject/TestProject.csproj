@@ -11,9 +11,8 @@
 
   <ItemGroup>
     <PackageReference Include="Google.Protobuf" Version="3.33.1" />
-    <PackageReference Include="Grpc.Tools" Version="2.60.0" PrivateAssets="All" />
+    <PackageReference Include="Grpc.Tools" Version="2.76.0" PrivateAssets="All" />
 
-    <!-- Version is provided by test via MSBuild property -->
     <PackageReference Include="ProtobufNrtAnnotator" Version="$(ProtobufNrtAnnotatorVersion)">
       <IncludeAssets>build</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>

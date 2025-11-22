@@ -22,7 +22,7 @@ public class NuGetPackageIntegrationTests : IntegrationTestBase
         var buildResult = await BuildTestProjectAsync(packageVersion);
         
         // Verify build succeeded
-        Assert.Equal(0, buildResult.ExitCode);
+        Assert.True(0 == buildResult.ExitCode, "build failed: " + buildResult.Output);
         Assert.Contains("Build succeeded", buildResult.Output);
         
         // Step 3: Verify expected nullability warnings were emitted

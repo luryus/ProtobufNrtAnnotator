@@ -79,7 +79,7 @@ public abstract class IntegrationTestBase : IDisposable
             $"/p:ProtobufNrtAnnotatorVersion={packageVersion}",
             $"/p:ProtobufNrtAnnotatorPackageSource={PackageOutputDirectory}",
             "-c Debug",
-            "/v:detailed" // Detailed verbosity to capture warnings
+            "/v:n"
         );
         
         return result;

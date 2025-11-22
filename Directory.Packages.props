@@ -1,0 +1,20 @@
+<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+  <ItemGroup>
+
+    <PackageVersion Include="Microsoft.Build.Utilities.Core" Version="18.0.2" />
+    <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="4.12.0" />
+    <PackageVersion Include="Google.Protobuf" Version="3.33.1" />
+    <PackageVersion Include="Grpc.Tools" Version="2.76.0" />
+
+    <!-- Tests -->
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
+    <PackageVersion Include="xunit" Version="2.9.3" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="3.1.5" />
+    <PackageVersion Include="coverlet.collector" Version="6.0.4" />
+    <PackageVersion Include="Verify.DiffPlex" Version="3.1.2" />
+    <PackageVersion Include="Verify.Xunit" Version="31.7.2" />
+  </ItemGroup>
+</Project>
