@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Google.Protobuf" Version="3.25.1" /> <!-- Using slightly older version for netstandard2.0 compat if needed, but 3.x is fine -->
+    <PackageReference Include="Google.Protobuf" Version="3.33.1" />
     <PackageReference Include="Grpc.Tools" Version="2.60.0" PrivateAssets="All" />
 
     <!-- Add the PostProcessor package -->

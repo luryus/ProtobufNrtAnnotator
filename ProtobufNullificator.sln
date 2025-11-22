@@ -3,13 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProgram", "TestProgram\TestProgram.csproj", "{3EDE5CD7-46F0-4413-BB68-BF0A6BE8E6D6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProtobufNullificator.PostProcessor", "src\ProtobufNullificator.PostProcessor\ProtobufNullificator.PostProcessor.csproj", "{A874F01D-97AD-44D8-8EA1-E249C877DCA2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProtobufNullificator.PostProcessor", "ProtobufNullificator.PostProcessor\ProtobufNullificator.PostProcessor.csproj", "{A874F01D-97AD-44D8-8EA1-E249C877DCA2}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProtobufNullificator.Tests", "ProtobufNullificator.Tests\ProtobufNullificator.Tests.csproj", "{8377D43A-F6D5-493E-A7E6-CF7238D0B918}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestLibrary", "TestLibrary\TestLibrary.csproj", "{0B89F65B-2196-455C-ADC2-952B877E6725}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProtobufNullificator.Tests", "tests\ProtobufNullificator.Tests\ProtobufNullificator.Tests.csproj", "{8377D43A-F6D5-493E-A7E6-CF7238D0B918}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,10 +16,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3EDE5CD7-46F0-4413-BB68-BF0A6BE8E6D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3EDE5CD7-46F0-4413-BB68-BF0A6BE8E6D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3EDE5CD7-46F0-4413-BB68-BF0A6BE8E6D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3EDE5CD7-46F0-4413-BB68-BF0A6BE8E6D6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A874F01D-97AD-44D8-8EA1-E249C877DCA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A874F01D-97AD-44D8-8EA1-E249C877DCA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A874F01D-97AD-44D8-8EA1-E249C877DCA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -32,9 +24,5 @@ Global
 		{8377D43A-F6D5-493E-A7E6-CF7238D0B918}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8377D43A-F6D5-493E-A7E6-CF7238D0B918}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8377D43A-F6D5-493E-A7E6-CF7238D0B918}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0B89F65B-2196-455C-ADC2-952B877E6725}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0B89F65B-2196-455C-ADC2-952B877E6725}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0B89F65B-2196-455C-ADC2-952B877E6725}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0B89F65B-2196-455C-ADC2-952B877E6725}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,16 +1,17 @@
 using System.Linq;
 
-namespace TestLibrary;
+namespace SampleLibrary;
 
-public class Class
+public class WarningTestClass
 {
     public void Thing()
     {
+        // The following code should produce nullability warnings.
+
         var msg = new ComplexMessage();
         msg.Email = null;
         msg.Attributes[null]= null;
-        msg.Children[1] = null;
-
         msg.Notes.First().CompareTo("x");
+        msg.Nested.Description.Contains("x");
     }
 }

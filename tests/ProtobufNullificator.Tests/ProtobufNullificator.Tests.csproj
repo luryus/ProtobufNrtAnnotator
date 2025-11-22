@@ -35,7 +35,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ProtobufNullificator.PostProcessor\ProtobufNullificator.PostProcessor.csproj" />
+    <ProjectReference Include="..\..\src\ProtobufNullificator.PostProcessor\ProtobufNullificator.PostProcessor.csproj" />
   </ItemGroup>
 
   <!-- Configure Protobuf generation to output to a specific folder for testing -->

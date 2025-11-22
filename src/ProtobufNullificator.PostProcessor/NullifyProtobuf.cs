@@ -1,6 +1,5 @@
 using Microsoft.Build.Framework;
 using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CSharp;
 using ProtobufNullificator.PostProcessor;
 
 public class NullifyProtobuf : Microsoft.Build.Utilities.Task
