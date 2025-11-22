@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package ProtobufNrtAnnotator.Tests.Protos;
+
+import "google/protobuf/wrappers.proto";
+
+message BytesMessage {
+  bytes bytes_field = 1;
+  google.protobuf.BytesValue bytes_value = 2;
+  repeated bytes repeated_bytes = 3;
+  map<string, bytes> map_bytes = 4;
+}

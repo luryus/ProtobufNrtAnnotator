@@ -1,8 +1,0 @@
-edition = "2023";
-
-package ProtobufNullificator.Tests.Protos;
-
-message Edition2023Message {
-  int32 id = 1;
-  string name = 2;
-}

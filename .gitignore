@@ -182,4 +182,5 @@ ServiceFabricBackup/
 *.received.*
 *.received/
 
-nupkg
+nupkg/*
+!nupkg/.gitkeep

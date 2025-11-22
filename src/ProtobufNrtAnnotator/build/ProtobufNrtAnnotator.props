@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project>
+  <PropertyGroup>
+    <_ProtobufNrtAnnotator_TaskFolder>$(MSBuildThisFileDirectory)..\tasks\netstandard2.0</_ProtobufNrtAnnotator_TaskFolder>
+    <CustomTasksAssembly>$(_ProtobufNrtAnnotator_TaskFolder)\$(MSBuildThisFileName).dll</CustomTasksAssembly>
+  </PropertyGroup>
+
+  <UsingTask TaskName="$(MSBuildThisFileName).NrtAnnotateProtobufFiles" AssemblyFile="$(CustomTasksAssembly)"/>
+
+  <PropertyGroup>
+    <EnableProtobufNrtAnnotator Condition="'$(EnableProtobufNrtAnnotator)' == ''">true</EnableProtobufNrtAnnotator>
+  </PropertyGroup>
+</Project>
