@@ -190,8 +190,8 @@ internal class NullabilityRewriter(Dictionary<int, bool> nullabilityDecisions) :
         }
 
         // Exclude RepeatedField and MapField
-        // Checking by name for simplicity, could be more robust with full symbol check
-        if (typeSymbol.Name is "RepeatedField" or "MapField")
+        if (typeSymbol.Name is "RepeatedField" or "MapField"
+            && typeSymbol.ContainingNamespace?.ToDisplayString() == "Google.Protobuf")
         {
             return false;
         }

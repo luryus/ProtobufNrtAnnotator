@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+import "google/protobuf/wrappers.proto";
+
+package ProtobufNrtAnnotator.Tests.GrpcProtos;
+
+
+service Sampler {
+  rpc GetSample(SampleRequest) returns (SampleResponse) {}
+}
+
+message SampleRequest {
+}
+
+message SampleResponse {
+  google.protobuf.StringValue text = 1;
+}

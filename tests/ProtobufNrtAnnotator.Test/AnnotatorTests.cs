@@ -1,5 +1,5 @@
 
-namespace ProtobufNrtAnnotator.Tests;
+namespace ProtobufNrtAnnotator.Test;
 
 public class AnnotatorTests
 {
@@ -28,5 +28,23 @@ public class AnnotatorTests
 
         // Assert
         await Verify(outputCode, extension: "cs").UseFileName(messageName).UseDirectory("Expected");
+    }
+    
+    [Theory]
+    [InlineData("GrpcService")]
+    [InlineData("GrpcServiceGrpc")]
+    public async Task ProcessGrpc_Snapshot(string fileName)
+    {
+        // Arrange
+        var inputPath = Path.Combine("Generated", "GrpcProtos", $"{fileName}.cs");
+        Assert.True(File.Exists(inputPath), $"Generated file not found at {inputPath}");
+        
+        var inputCode = await File.ReadAllTextAsync(inputPath);
+
+        // Act
+        var outputCode = Runner.ProcessContent(inputCode);
+
+        // Assert
+        await Verify(outputCode, extension: "cs").UseFileName(fileName).UseDirectory("Expected");
     }
 }
