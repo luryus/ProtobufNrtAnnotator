@@ -1,7 +1,4 @@
-using Xunit;
 using ProtobufNullificator.PostProcessor;
-using System.IO;
-using System.Threading.Tasks;
 
 namespace ProtobufNullificator.Tests;
 
@@ -31,6 +28,6 @@ public class NullificatorTests
         var outputCode = await NullificatorRunner.ProcessContentAsync(inputCode);
 
         // Assert
-        await Verify(outputCode).UseFileName(messageName).UseDirectory("Expected");
+        await Verify(outputCode, extension: "cs").UseFileName(messageName).UseDirectory("Expected");
     }
 }

@@ -42,6 +42,7 @@
   <ItemGroup>
     <Protobuf Include="Protos\**\*.proto" OutputDir="Generated/%(RecursiveDir)" CompileOutputs="false" GrpcServices="None" />
     <None Include="Generated\**\*.cs" CopyToOutputDirectory="PreserveNewest" />
+    <Compile Remove="Expected\**\*.cs" />
   </ItemGroup>
 
 
