@@ -27,17 +27,19 @@ namespace ProtobufNrtAnnotator.Tests.Protos {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChpQcm90b3MvTmVzdGVkTWVzc2FnZS5wcm90bxIhUHJvdG9idWZOcnRBbm5v",
-            "dGF0b3IuVGVzdHMuUHJvdG9zIpoCCgxPdXRlck1lc3NhZ2USTQoGbWlkZGxl",
-            "GAEgASgLMj0uUHJvdG9idWZOcnRBbm5vdGF0b3IuVGVzdHMuUHJvdG9zLk91",
-            "dGVyTWVzc2FnZS5NaWRkbGVNZXNzYWdlEhMKC291dGVyX3ZhbHVlGAIgASgJ",
-            "GqUBCg1NaWRkbGVNZXNzYWdlElkKBWlubmVyGAEgASgLMkouUHJvdG9idWZO",
-            "cnRBbm5vdGF0b3IuVGVzdHMuUHJvdG9zLk91dGVyTWVzc2FnZS5NaWRkbGVN",
-            "ZXNzYWdlLklubmVyTWVzc2FnZRIUCgxtaWRkbGVfdmFsdWUYAiABKAkaIwoM",
-            "SW5uZXJNZXNzYWdlEhMKC2lubmVyX3ZhbHVlGAEgASgJYgZwcm90bzM="));
+            "dGF0b3IuVGVzdHMuUHJvdG9zGh5nb29nbGUvcHJvdG9idWYvd3JhcHBlcnMu",
+            "cHJvdG8i1gIKDE91dGVyTWVzc2FnZRJNCgZtaWRkbGUYASABKAsyPS5Qcm90",
+            "b2J1Zk5ydEFubm90YXRvci5UZXN0cy5Qcm90b3MuT3V0ZXJNZXNzYWdlLk1p",
+            "ZGRsZU1lc3NhZ2USEwoLb3V0ZXJfdmFsdWUYAiABKAka4QEKDU1pZGRsZU1l",
+            "c3NhZ2USWQoFaW5uZXIYASABKAsySi5Qcm90b2J1Zk5ydEFubm90YXRvci5U",
+            "ZXN0cy5Qcm90b3MuT3V0ZXJNZXNzYWdlLk1pZGRsZU1lc3NhZ2UuSW5uZXJN",
+            "ZXNzYWdlEhQKDG1pZGRsZV92YWx1ZRgCIAEoCRpfCgxJbm5lck1lc3NhZ2US",
+            "EwoLaW5uZXJfdmFsdWUYASABKAkSOgoUaW5uZXJfbnVsbGFibGVfdmFsdWUY",
+            "AiABKAsyHC5nb29nbGUucHJvdG9idWYuU3RyaW5nVmFsdWViBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { },
+          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::ProtobufNrtAnnotator.Tests.Protos.OuterMessage), global::ProtobufNrtAnnotator.Tests.Protos.OuterMessage.Parser, new[]{ "Middle", "OuterValue" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::ProtobufNrtAnnotator.Tests.Protos.OuterMessage.Types.MiddleMessage), global::ProtobufNrtAnnotator.Tests.Protos.OuterMessage.Types.MiddleMessage.Parser, new[]{ "Inner", "MiddleValue" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::ProtobufNrtAnnotator.Tests.Protos.OuterMessage.Types.MiddleMessage.Types.InnerMessage), global::ProtobufNrtAnnotator.Tests.Protos.OuterMessage.Types.MiddleMessage.Types.InnerMessage.Parser, new[]{ "InnerValue" }, null, null, null, null)})})
+            new pbr::GeneratedClrTypeInfo(typeof(global::ProtobufNrtAnnotator.Tests.Protos.OuterMessage), global::ProtobufNrtAnnotator.Tests.Protos.OuterMessage.Parser, new[]{ "Middle", "OuterValue" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::ProtobufNrtAnnotator.Tests.Protos.OuterMessage.Types.MiddleMessage), global::ProtobufNrtAnnotator.Tests.Protos.OuterMessage.Types.MiddleMessage.Parser, new[]{ "Inner", "MiddleValue" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::ProtobufNrtAnnotator.Tests.Protos.OuterMessage.Types.MiddleMessage.Types.InnerMessage), global::ProtobufNrtAnnotator.Tests.Protos.OuterMessage.Types.MiddleMessage.Types.InnerMessage.Parser, new[]{ "InnerValue", "InnerNullableValue" }, null, null, null, null)})})
           }));
     }
     #endregion
@@ -574,6 +576,7 @@ namespace ProtobufNrtAnnotator.Tests.Protos {
             [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
             public InnerMessage(InnerMessage other) : this() {
               innerValue_ = other.innerValue_;
+              InnerNullableValue = other.InnerNullableValue;
               _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
             }
 
@@ -595,6 +598,20 @@ namespace ProtobufNrtAnnotator.Tests.Protos {
               }
             }
 
+            /// <summary>Field number for the "inner_nullable_value" field.</summary>
+            public const int InnerNullableValueFieldNumber = 2;
+            private static readonly pb::FieldCodec<string> _single_innerNullableValue_codec = pb::FieldCodec.ForClassWrapper<string>(18);
+            private string innerNullableValue_;
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+            [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+            public string? InnerNullableValue {
+              get { return innerNullableValue_; }
+              set {
+                innerNullableValue_ = value;
+              }
+            }
+
+
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
             public override bool Equals(object? other) {
@@ -611,6 +628,7 @@ namespace ProtobufNrtAnnotator.Tests.Protos {
                 return true;
               }
               if (InnerValue != other.InnerValue) return false;
+              if (InnerNullableValue != other.InnerNullableValue) return false;
               return Equals(_unknownFields, other._unknownFields);
             }
 
@@ -619,6 +637,7 @@ namespace ProtobufNrtAnnotator.Tests.Protos {
             public override int GetHashCode() {
               int hash = 1;
               if (InnerValue.Length != 0) hash ^= InnerValue.GetHashCode();
+              if (innerNullableValue_ != null) hash ^= InnerNullableValue.GetHashCode();
               if (_unknownFields != null) {
                 hash ^= _unknownFields.GetHashCode();
               }
@@ -641,6 +660,9 @@ namespace ProtobufNrtAnnotator.Tests.Protos {
                 output.WriteRawTag(10);
                 output.WriteString(InnerValue);
               }
+              if (innerNullableValue_ != null) {
+                _single_innerNullableValue_codec.WriteTagAndValue(output, InnerNullableValue);
+              }
               if (_unknownFields != null) {
                 _unknownFields.WriteTo(output);
               }
@@ -655,6 +677,9 @@ namespace ProtobufNrtAnnotator.Tests.Protos {
                 output.WriteRawTag(10);
                 output.WriteString(InnerValue);
               }
+              if (innerNullableValue_ != null) {
+                _single_innerNullableValue_codec.WriteTagAndValue(ref output, InnerNullableValue);
+              }
               if (_unknownFields != null) {
                 _unknownFields.WriteTo(ref output);
               }
@@ -667,6 +692,9 @@ namespace ProtobufNrtAnnotator.Tests.Protos {
               int size = 0;
               if (InnerValue.Length != 0) {
                 size += 1 + pb::CodedOutputStream.ComputeStringSize(InnerValue);
+              }
+              if (innerNullableValue_ != null) {
+                size += _single_innerNullableValue_codec.CalculateSizeWithTag(InnerNullableValue);
               }
               if (_unknownFields != null) {
                 size += _unknownFields.CalculateSize();
@@ -682,6 +710,11 @@ namespace ProtobufNrtAnnotator.Tests.Protos {
               }
               if (other.InnerValue.Length != 0) {
                 InnerValue = other.InnerValue;
+              }
+              if (other.innerNullableValue_ != null) {
+                if (innerNullableValue_ == null || other.InnerNullableValue != "") {
+                  InnerNullableValue = other.InnerNullableValue;
+                }
               }
               _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
             }
@@ -706,6 +739,13 @@ namespace ProtobufNrtAnnotator.Tests.Protos {
                     InnerValue = input.ReadString();
                     break;
                   }
+                  case 18: {
+                    string value = _single_innerNullableValue_codec.Read(input);
+                    if (innerNullableValue_ == null || value != "") {
+                      InnerNullableValue = value;
+                    }
+                    break;
+                  }
                 }
               }
             #endif
@@ -727,6 +767,13 @@ namespace ProtobufNrtAnnotator.Tests.Protos {
                     break;
                   case 10: {
                     InnerValue = input.ReadString();
+                    break;
+                  }
+                  case 18: {
+                    string value = _single_innerNullableValue_codec.Read(ref input);
+                    if (innerNullableValue_ == null || value != "") {
+                      InnerNullableValue = value;
+                    }
                     break;
                   }
                 }

@@ -1,11 +1,14 @@
 syntax = "proto3";
 
+import "google/protobuf/wrappers.proto";
+
 package ProtobufNrtAnnotator.Tests.Protos;
 
 message OuterMessage {
   message MiddleMessage {
     message InnerMessage {
       string inner_value = 1;
+      google.protobuf.StringValue inner_nullable_value = 2;
     }
     InnerMessage inner = 1;
     string middle_value = 2;

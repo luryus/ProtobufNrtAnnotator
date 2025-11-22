@@ -24,7 +24,7 @@ public class AnnotatorTests
         var inputCode = await File.ReadAllTextAsync(inputPath);
 
         // Act
-        var outputCode = await Runner.ProcessContentAsync(inputCode);
+        var outputCode = Runner.ProcessContent(inputCode);
 
         // Assert
         await Verify(outputCode, extension: "cs").UseFileName(messageName).UseDirectory("Expected");

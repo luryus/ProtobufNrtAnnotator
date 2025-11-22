@@ -1,6 +1,6 @@
 using Microsoft.Build.Framework;
-using Microsoft.CodeAnalysis;
-using ProtobufNrtAnnotator;
+
+namespace ProtobufNrtAnnotator;
 
 public class NrtAnnotateProtobufFiles : Microsoft.Build.Utilities.Task
 {
@@ -26,11 +26,8 @@ public class NrtAnnotateProtobufFiles : Microsoft.Build.Utilities.Task
 
             Log.LogMessage($"Processing {filePath}...");
 
-            var newCode = Runner.ProcessContentAsync(code).GetAwaiter().GetResult();
-            if (newCode != null)
-            {
-                File.WriteAllText(filePath, newCode);
-            }
+            var newCode = Runner.ProcessContent(code);
+            File.WriteAllText(filePath, newCode);
         }
 
         return true;

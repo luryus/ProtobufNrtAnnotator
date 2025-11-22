@@ -7,15 +7,8 @@ namespace ProtobufNrtAnnotator;
 /// <summary>
 /// Rewrites protobuf-generated C# code to add nullability annotations.
 /// </summary>
-internal class NullabilityRewriter : CSharpSyntaxRewriter
+internal class NullabilityRewriter(Dictionary<int, bool> nullabilityDecisions) : CSharpSyntaxRewriter
 {
-    private readonly Dictionary<int, bool> _nullabilityDecisions;
-
-    public NullabilityRewriter(Dictionary<int, bool> nullabilityDecisions)
-    {
-        _nullabilityDecisions = nullabilityDecisions;
-    }
-
     /// <summary>
     /// Analyzes a syntax tree and determines which properties, fields, and parameters should be nullable.
     /// Call this BEFORE creating the rewriter.
@@ -59,7 +52,7 @@ internal class NullabilityRewriter : CSharpSyntaxRewriter
         }
         
         // Use the position to look up the pre-computed decision from analysis phase
-        if (_nullabilityDecisions.TryGetValue(node.SpanStart, out var shouldBeNullable) && shouldBeNullable)
+        if (nullabilityDecisions.TryGetValue(node.SpanStart, out var shouldBeNullable) && shouldBeNullable)
         {
 
             // Save the trailing trivia (typically a space before the property name)
@@ -89,7 +82,7 @@ internal class NullabilityRewriter : CSharpSyntaxRewriter
         }
         
         // Use the position to look up the pre-computed decision from analysis phase
-        if (_nullabilityDecisions.TryGetValue(node.SpanStart, out var shouldBeNullable) && shouldBeNullable)
+        if (nullabilityDecisions.TryGetValue(node.SpanStart, out var shouldBeNullable) && shouldBeNullable)
         {
             // Apply the same trivia handling as properties
             var originalType = node.Declaration.Type;
@@ -117,7 +110,7 @@ internal class NullabilityRewriter : CSharpSyntaxRewriter
         }
         
         // Use the position to look up the pre-computed decision from analysis phase
-        if (_nullabilityDecisions.TryGetValue(node.SpanStart, out var shouldBeNullable) && shouldBeNullable)
+        if (nullabilityDecisions.TryGetValue(node.SpanStart, out var shouldBeNullable) && shouldBeNullable)
         {
             // Apply the same trivia handling
             var originalType = node.Type;
@@ -198,7 +191,7 @@ internal class NullabilityRewriter : CSharpSyntaxRewriter
 
         // Exclude RepeatedField and MapField
         // Checking by name for simplicity, could be more robust with full symbol check
-        if (typeSymbol.Name == "RepeatedField" || typeSymbol.Name == "MapField")
+        if (typeSymbol.Name is "RepeatedField" or "MapField")
         {
             return false;
         }
@@ -224,45 +217,28 @@ internal class NullabilityRewriter : CSharpSyntaxRewriter
     {
         // Check if this is the _unknownFields field (common in protobuf generated code)
         var variables = field.Declaration.Variables;
-        foreach (var variable in variables)
-        {
-            if (variable.Identifier.Text == "_unknownFields")
-            {
-                return true;
-            }
-        }
-
-        return false;
+        return variables.Any(variable => variable.Identifier.Text == "_unknownFields");
     }
 
     private static bool ShouldParameterBeNullable(ParameterSyntax parameter)
     {
         // Get the containing method
-        var method = parameter.Parent?.Parent as MethodDeclarationSyntax;
-        if (method == null)
+        if (parameter.Parent?.Parent is not MethodDeclarationSyntax method)
         {
             return false;
         }
 
         var methodName = method.Identifier.Text;
 
-        // Equals methods: both object Equals(object other) and bool Equals(TypeName other)
-        if (methodName == "Equals")
+        return methodName switch
         {
-            return true;
-        }
-
-        // MergeFrom method: void MergeFrom(TypeName other)
-        if (methodName == "MergeFrom")
-        {
+            // Equals methods: both object Equals(object other) and bool Equals(TypeName other)
+            "Equals" => true,
+            // MergeFrom method: void MergeFrom(TypeName other)
             // CodedInputStream should NOT be nullable
-            if (parameter.Type != null && parameter.Type.ToString().Contains("CodedInputStream"))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        return false;
+            "MergeFrom" when parameter.Type != null && parameter.Type.ToString().Contains("CodedInputStream") => false,
+            "MergeFrom" => true,
+            _ => false
+        };
     }
 }

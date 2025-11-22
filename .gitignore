@@ -184,3 +184,5 @@ ServiceFabricBackup/
 
 nupkg/*
 !nupkg/.gitkeep
+
+.idea

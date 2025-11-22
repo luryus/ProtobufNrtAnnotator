@@ -6,10 +6,10 @@ namespace ProtobufNrtAnnotator;
 
 internal static class Runner
 {
-    public static async Task<string?> ProcessContentAsync(string code)
+    public static string ProcessContent(string code)
     {
         var tree = CSharpSyntaxTree.ParseText(code);
-        var root = await tree.GetRootAsync();
+        var root = tree.GetRoot();
 
         // Create compilation
         var references = new List<MetadataReference>
@@ -49,6 +49,6 @@ internal static class Runner
             newRoot = compilationUnit.WithLeadingTrivia(leadingTrivia);
         }
 
-        return newRoot?.ToFullString();
+        return newRoot.ToFullString();
     }
 }
