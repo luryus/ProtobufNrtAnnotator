@@ -50,13 +50,15 @@ This project uses GitHub Actions to automatically build, test, and publish to Nu
    <Version>0.1.2</Version>
    ```
 
-2. **Commit and push** the version change:
+2. Update the version in README and Directory.Packages.props
+
+3. **Commit and push** the version change:
    ```bash
    git commit -am "Bump version to 0.1.2"
    git push
    ```
 
-3. **Create and push a git tag** matching the version:
+4. **Create and push a git tag** matching the version:
    ```bash
    git tag v0.1.2
    git push origin v0.1.2
@@ -67,11 +69,3 @@ The GitHub Actions release workflow will automatically:
 - Run all tests  
 - Pack the NuGet package
 - Publish to NuGet.org using trusted publishing (OIDC authentication)
-
-> [!NOTE]
-> The first time you release, you'll need to configure [trusted publishing on NuGet.org](https://learn.microsoft.com/en-us/nuget/nuget-org/publish-a-package#publishing-with-github-actions):
-> 1. Log into NuGet.org
-> 2. Go to your profile → "Trusted Publishing"
-> 3. Add a new publisher with:
->    - Repository: `luryus/ProtobufNrtAnnotator`
->    - Workflow: `release.yml`
