@@ -22,7 +22,7 @@ message ComplexMessage {
 
   // Map fields
   map<string, string> attributes = 8;
-  map<int32, ComplexMessage> children = 9;
+  map<string, ComplexMessage> children = 9;
   
   // Nested message
   NestedMessage nested = 10;

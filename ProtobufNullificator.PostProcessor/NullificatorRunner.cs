@@ -6,7 +6,7 @@ namespace ProtobufNullificator.PostProcessor;
 
 public static class NullificatorRunner
 {
-    public static async Task<string?> ProcessContentAsync(string code, IEnumerable<string>? referencePaths = null)
+    public static async Task<string?> ProcessContentAsync(string code)
     {
         var tree = CSharpSyntaxTree.ParseText(code);
         var root = await tree.GetRootAsync();
@@ -18,17 +18,6 @@ public static class NullificatorRunner
             MetadataReference.CreateFromFile(typeof(Google.Protobuf.MessageParser).Assembly.Location),
             MetadataReference.CreateFromFile(Path.Combine(Path.GetDirectoryName(typeof(object).Assembly.Location)!, "System.Runtime.dll"))
         };
-
-        if (referencePaths != null)
-        {
-            foreach (var path in referencePaths)
-            {
-                if (File.Exists(path))
-                {
-                    references.Add(MetadataReference.CreateFromFile(path));
-                }
-            }
-        }
 
         var compilation = CSharpCompilation.Create("ProtobufNullificatorAnalysis")
             .AddReferences(references)

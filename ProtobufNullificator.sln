@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProtobufNullificator.PostPr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProtobufNullificator.Tests", "ProtobufNullificator.Tests\ProtobufNullificator.Tests.csproj", "{8377D43A-F6D5-493E-A7E6-CF7238D0B918}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestLibrary", "TestLibrary\TestLibrary.csproj", "{0B89F65B-2196-455C-ADC2-952B877E6725}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{8377D43A-F6D5-493E-A7E6-CF7238D0B918}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8377D43A-F6D5-493E-A7E6-CF7238D0B918}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8377D43A-F6D5-493E-A7E6-CF7238D0B918}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B89F65B-2196-455C-ADC2-952B877E6725}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B89F65B-2196-455C-ADC2-952B877E6725}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B89F65B-2196-455C-ADC2-952B877E6725}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B89F65B-2196-455C-ADC2-952B877E6725}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

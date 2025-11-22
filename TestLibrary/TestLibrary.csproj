@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
-    
+
     <!-- Add local package source for testing -->
     <RestoreAdditionalProjectSources>$(RestoreAdditionalProjectSources);$(MSBuildThisFileDirectory)../nupkg</RestoreAdditionalProjectSources>
   </PropertyGroup>
@@ -12,9 +12,9 @@
   <ItemGroup>
     <PackageReference Include="Google.Protobuf" Version="3.25.1" /> <!-- Using slightly older version for netstandard2.0 compat if needed, but 3.x is fine -->
     <PackageReference Include="Grpc.Tools" Version="2.60.0" PrivateAssets="All" />
-    
+
     <!-- Add the PostProcessor package -->
-    <PackageReference Include="ProtobufNullificator.PostProcessor" Version="1.1.4">
+    <PackageReference Include="ProtobufNullificator.PostProcessor" Version="1.1.7">
       <IncludeAssets>build</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>

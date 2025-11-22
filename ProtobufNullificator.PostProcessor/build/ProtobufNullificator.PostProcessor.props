@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project>
+  <PropertyGroup>
+    <_ProtobufNullificator_PostProcessor_TaskFolder>$(MSBuildThisFileDirectory)..\tasks\net6.0</_ProtobufNullificator_PostProcessor_TaskFolder>
+    <CustomTasksAssembly>$(_ProtobufNullificator_PostProcessor_TaskFolder)\$(MSBuildThisFileName).dll</CustomTasksAssembly>
+  </PropertyGroup>
+
+  <UsingTask TaskName="$(MSBuildThisFileName).NullifyProtobuf" AssemblyFile="$(CustomTasksAssembly)"/>
+
+  <PropertyGroup>
+    <EnableProtobufNullificator Condition="'$(EnableProtobufNullificator)' == ''">true</EnableProtobufNullificator>
+  </PropertyGroup>
+</Project>
