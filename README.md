@@ -38,3 +38,40 @@ ProtobufNrtAnnotator is an MSBuild task that runs after Grpc.Tools generates C# 
 5. Save the modified code back to the generated files
 
 This ensures your generated protobuf code works seamlessly with C# nullable reference types enabled.
+
+## Development
+
+### Releasing a New Version
+
+This project uses GitHub Actions to automatically build, test, and publish to NuGet.org. To release a new version:
+
+1. **Update the version** in `src/ProtobufNrtAnnotator/ProtobufNrtAnnotator.csproj`:
+   ```xml
+   <Version>0.1.2</Version>
+   ```
+
+2. **Commit and push** the version change:
+   ```bash
+   git commit -am "Bump version to 0.1.2"
+   git push
+   ```
+
+3. **Create and push a git tag** matching the version:
+   ```bash
+   git tag v0.1.2
+   git push origin v0.1.2
+   ```
+
+The GitHub Actions release workflow will automatically:
+- Build the project
+- Run all tests  
+- Pack the NuGet package
+- Publish to NuGet.org using trusted publishing (OIDC authentication)
+
+> [!NOTE]
+> The first time you release, you'll need to configure [trusted publishing on NuGet.org](https://learn.microsoft.com/en-us/nuget/nuget-org/publish-a-package#publishing-with-github-actions):
+> 1. Log into NuGet.org
+> 2. Go to your profile → "Trusted Publishing"
+> 3. Add a new publisher with:
+>    - Repository: `luryus/ProtobufNrtAnnotator`
+>    - Workflow: `release.yml`
