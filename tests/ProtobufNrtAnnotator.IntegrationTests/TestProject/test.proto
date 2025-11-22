@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package TestProject;
+
+import "google/protobuf/wrappers.proto";
+
+message TestMessage {
+  // Standard fields that should be nullable
+  string name = 1;
+  string email = 2;
+  
+  // Oneof field
+  oneof contact {
+    string phone = 3;
+    string fax = 4;
+  }
+  
+  // Wrapper type
+  google.protobuf.StringValue nickname = 5;
+  
+  // Nested message
+  NestedMessage details = 6;
+  
+  // Repeated fields (should not be nullable)
+  repeated string tags = 7;
+  
+  // Map fields (should not be nullable)
+  map<string, string> metadata = 8;
+}
+
+message NestedMessage {
+  string description = 1;
+}

@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+
+    <!-- Add local package source for testing -->
+    <RestoreAdditionalProjectSources>$(RestoreAdditionalProjectSources);$(ProtobufNrtAnnotatorPackageSource)</RestoreAdditionalProjectSources>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.33.1" />
+    <PackageReference Include="Grpc.Tools" Version="2.60.0" PrivateAssets="All" />
+
+    <!-- Version is provided by test via MSBuild property -->
+    <PackageReference Include="ProtobufNrtAnnotator" Version="$(ProtobufNrtAnnotatorVersion)">
+      <IncludeAssets>build</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="test.proto" />
+  </ItemGroup>
+
+</Project>

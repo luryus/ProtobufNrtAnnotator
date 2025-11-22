@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProtobufNrtAnnotator", "src
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProtobufNrtAnnotator.Test", "tests\ProtobufNrtAnnotator.Test\ProtobufNrtAnnotator.Test.csproj", "{8377D43A-F6D5-493E-A7E6-CF7238D0B918}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{C9E6CC74-9B06-4EE1-A54D-6F3D514C1039}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProtobufNrtAnnotator.IntegrationTests", "tests\ProtobufNrtAnnotator.IntegrationTests\ProtobufNrtAnnotator.IntegrationTests.csproj", "{F9D07D5E-BB6B-45C9-A0BC-82CA96364E74}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +28,12 @@ Global
 		{8377D43A-F6D5-493E-A7E6-CF7238D0B918}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8377D43A-F6D5-493E-A7E6-CF7238D0B918}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8377D43A-F6D5-493E-A7E6-CF7238D0B918}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9D07D5E-BB6B-45C9-A0BC-82CA96364E74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9D07D5E-BB6B-45C9-A0BC-82CA96364E74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9D07D5E-BB6B-45C9-A0BC-82CA96364E74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9D07D5E-BB6B-45C9-A0BC-82CA96364E74}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F9D07D5E-BB6B-45C9-A0BC-82CA96364E74} = {C9E6CC74-9B06-4EE1-A54D-6F3D514C1039}
 	EndGlobalSection
 EndGlobal
