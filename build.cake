@@ -1,9 +1,10 @@
 var target = Argument("target", "Build");
 var targetVersion = Argument("target-version", "");
 var configuration = Argument("configuration", "Release");
+var versionSuffix = Argument("version-suffix", "");
 
 Task("Clean")
-    .Does(() => 
+    .Does(() =>
 {
     CleanDirectories("*/**/bin");
     CleanDirectories("*/**/obj");
@@ -37,7 +38,8 @@ Task("PackageNuget")
         new DotNetPackSettings
         {
             Configuration = configuration,
-            OutputDirectory = "./nupkg"
+            OutputDirectory = "./nupkg",
+            VersionSuffix = versionSuffix,
         });
 
     Information("Nuget package saved to ./nupkg");
@@ -66,7 +68,7 @@ Task("BumpVersion")
     // Update README.md
     var readme = "./README.md";
     var content = System.IO.File.ReadAllText(readme);
-    
+
     // Update PackageReference
     // <PackageReference Include="ProtobufNrtAnnotator" Version="0.2.0">
     var packageRefRegex = new System.Text.RegularExpressions.Regex(@"<PackageReference Include=""ProtobufNrtAnnotator"" Version="".*?""");
