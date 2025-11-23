@@ -34,23 +34,16 @@ public abstract class IntegrationTestBase : IDisposable
     /// </summary>
     /// <returns>The full version string of the built package</returns>
     protected async Task<string> BuildNuGetPackageAsync()
-    {
-        // Parse version from project file
-        var csprojContent = await File.ReadAllTextAsync(SourceProjectPath);
-        var versionMatch = Regex.Match(csprojContent, "<Version>(.*?)</Version>");
-        if (!versionMatch.Success)
-        {
-            throw new InvalidOperationException("Could not find version in csproj file");
-        }
-        
-        var baseVersion = versionMatch.Groups[1].Value;
+    {   
+        var versionPrefix = "0.0.0"; 
         var timestamp = DateTimeOffset.Now.ToString("yyyyMMddHHmmss", CultureInfo.InvariantCulture);
-        var fullVersion = $"{baseVersion}-test-{timestamp}";
+        var versionSuffix = $"test.{timestamp}";
         
         var result = await RunDotNetCommandAsync(
             "pack",
             Path.GetDirectoryName(SourceProjectPath)!,
-            $"-p:Version={fullVersion}",
+            $"-p:VersionPrefix={versionPrefix}",
+            $"--version-suffix={versionSuffix}",
             "-o", PackageOutputDirectory,
             "-c", "Release"
         );
@@ -60,7 +53,7 @@ public abstract class IntegrationTestBase : IDisposable
             throw new InvalidOperationException($"Failed to build NuGet package. Exit code: {result.ExitCode}\nOutput: {result.Output}\nError: {result.Error}");
         }
         
-        return fullVersion;
+        return $"{versionPrefix}-{versionSuffix}";
     }
     
     /// <summary>

@@ -55,7 +55,7 @@ Task("BumpVersion")
 
     // Update Directory.Build.props
     var buildProps = "./Directory.Build.props";
-    XmlPoke(buildProps, "/Project/PropertyGroup/Version", targetVersion);
+    XmlPoke(buildProps, "/Project/PropertyGroup/VersionPrefix", targetVersion);
     Information($"Updated {buildProps}");
 
     // Update Directory.Packages.props

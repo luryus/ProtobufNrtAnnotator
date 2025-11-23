@@ -10,7 +10,7 @@ public class NuGetPackageIntegrationTests : IntegrationTestBase
         
         // Verify package was created with correct version
         Assert.NotNull(packageVersion);
-        Assert.Contains("-test-", packageVersion);
+        Assert.Contains("0.0.0-test.", packageVersion);
         
         var packageFiles = Directory.GetFiles(PackageOutputDirectory, "*.nupkg");
         Assert.Single(packageFiles);
