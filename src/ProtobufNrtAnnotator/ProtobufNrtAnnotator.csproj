@@ -7,7 +7,7 @@
     <LangVersion>latest</LangVersion>
 
     <PackageId>ProtobufNrtAnnotator</PackageId>
-    <Version>0.1.2</Version>
+    <Version>0.2.0</Version>
     <Authors>luryus</Authors>
     <Description>MSBuild task that automatically adds nullable reference type annotations to Grpc.Tools-generated C# code.</Description>
     <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -33,7 +33,7 @@
   <ItemGroup>
     <None Include="..\..\README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
-  
+
   <ItemGroup>
     <!-- Dependencies marked as private - they will be included in the package -->
     <PackageReference Include="Microsoft.Build.Utilities.Core" PrivateAssets="all" ExcludedAssets="Runtime" />

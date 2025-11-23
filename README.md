@@ -13,8 +13,8 @@ Add the package to your project alongside `Grpc.Tools` and `Google.Protobuf`:
 <ItemGroup>
   <PackageReference Include="Google.Protobuf" Version="..." />
   <PackageReference Include="Grpc.Tools" Version="..." PrivateAssets="All" />
-  
-  <PackageReference Include="ProtobufNrtAnnotator" Version="0.1.1">
+
+  <PackageReference Include="ProtobufNrtAnnotator" Version="0.2.0">
     <IncludeAssets>build</IncludeAssets>
     <PrivateAssets>all</PrivateAssets>
   </PackageReference>
@@ -66,6 +66,6 @@ This project uses GitHub Actions to automatically build, test, and publish to Nu
 
 The GitHub Actions release workflow will automatically:
 - Build the project
-- Run all tests  
+- Run all tests
 - Pack the NuGet package
 - Publish to NuGet.org using trusted publishing (OIDC authentication)
