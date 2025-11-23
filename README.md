@@ -45,23 +45,23 @@ This ensures your generated protobuf code works seamlessly with C# nullable refe
 
 This project uses GitHub Actions to automatically build, test, and publish to NuGet.org. To release a new version:
 
-1. **Update the version** in `src/ProtobufNrtAnnotator/ProtobufNrtAnnotator.csproj`:
-   ```xml
-   <Version>0.1.2</Version>
+1. **Bump the version** using Cake:
+   ```bash
+   dotnet cake --target=Bump-Version --target-version=0.2.0
    ```
 
-2. Update the version in README and Directory.Packages.props
+   This will automatically update `Directory.Build.props`, `Directory.Packages.props`, and `README.md`.
 
 3. **Commit and push** the version change:
    ```bash
-   git commit -am "Bump version to 0.1.2"
+   git commit -am "Bump version to 0.2.0"
    git push
    ```
 
 4. **Create and push a git tag** matching the version:
    ```bash
-   git tag v0.1.2
-   git push origin v0.1.2
+   git tag v0.2.0
+   git push origin v0.2.0
    ```
 
 The GitHub Actions release workflow will automatically:
