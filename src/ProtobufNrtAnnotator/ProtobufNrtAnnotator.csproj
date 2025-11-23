@@ -7,7 +7,6 @@
     <LangVersion>latest</LangVersion>
 
     <PackageId>ProtobufNrtAnnotator</PackageId>
-    <Version>0.2.0</Version>
     <Authors>luryus</Authors>
     <Description>MSBuild task that automatically adds nullable reference type annotations to Grpc.Tools-generated C# code.</Description>
     <PackageReadmeFile>README.md</PackageReadmeFile>
