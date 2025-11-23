@@ -28,11 +28,13 @@ jobs:
       uses: cake-build/cake-action@v3
       with:
         target: Test
+        verbosity: Verbose
 
     - name: Pack
       uses: cake-build/cake-action@v3
       with:
         target: PackageNuget
+        verbosity: Verbose
 
     - name: Get NuGet API key via OIDC
       uses: NuGet/login@v1
