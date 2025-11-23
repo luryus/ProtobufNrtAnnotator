@@ -28,14 +28,14 @@ namespace ProtobufNrtAnnotator.Tests.Protos {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChpQcm90b3MvUHJvdG8yTWVzc2FnZS5wcm90bxIhUHJvdG9idWZOcnRBbm5v",
-            "dGF0b3IuVGVzdHMuUHJvdG9zInYKDVByb3RvMk1lc3NhZ2USFAoMb3B0aW9u",
-            "YWxfaW50GAEgASgFEhQKDHJlcXVpcmVkX2ludBgCIAIoBRIXCg9yZXBlYXRl",
-            "ZF9zdHJpbmcYAyADKAkSIAoPb3B0aW9uYWxfc3RyaW5nGAQgASgJOgdkZWZh",
-            "dWx0"));
+            "dGF0b3IuVGVzdHMuUHJvdG9zIpEBCg1Qcm90bzJNZXNzYWdlEhQKDG9wdGlv",
+            "bmFsX2ludBgBIAEoBRIUCgxyZXF1aXJlZF9pbnQYAiACKAUSFwoPcmVwZWF0",
+            "ZWRfc3RyaW5nGAMgAygJEiAKD29wdGlvbmFsX3N0cmluZxgEIAEoCToHZGVm",
+            "YXVsdBIZChFvcHRpb25hbF9zdHJpbmdfMhgFIAEoCQ=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::ProtobufNrtAnnotator.Tests.Protos.Proto2Message), global::ProtobufNrtAnnotator.Tests.Protos.Proto2Message.Parser, new[]{ "OptionalInt", "RequiredInt", "RepeatedString", "OptionalString" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::ProtobufNrtAnnotator.Tests.Protos.Proto2Message), global::ProtobufNrtAnnotator.Tests.Protos.Proto2Message.Parser, new[]{ "OptionalInt", "RequiredInt", "RepeatedString", "OptionalString", "OptionalString2" }, null, null, null, null)
           }));
     }
     #endregion
@@ -83,6 +83,7 @@ namespace ProtobufNrtAnnotator.Tests.Protos {
       requiredInt_ = other.requiredInt_;
       repeatedString_ = other.repeatedString_.Clone();
       optionalString_ = other.optionalString_;
+      optionalString2_ = other.optionalString2_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -161,7 +162,7 @@ namespace ProtobufNrtAnnotator.Tests.Protos {
     public const int OptionalStringFieldNumber = 4;
     private readonly static string OptionalStringDefaultValue = global::System.Text.Encoding.UTF8.GetString(global::System.Convert.FromBase64String("ZGVmYXVsdA=="), 0, 7);
 
-    private string optionalString_;
+    private string? optionalString_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string OptionalString {
@@ -183,6 +184,32 @@ namespace ProtobufNrtAnnotator.Tests.Protos {
       optionalString_ = null;
     }
 
+    /// <summary>Field number for the "optional_string_2" field.</summary>
+    public const int OptionalString2FieldNumber = 5;
+    private readonly static string OptionalString2DefaultValue = "";
+
+    private string? optionalString2_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string OptionalString2 {
+      get { return optionalString2_ ?? OptionalString2DefaultValue; }
+      set {
+        optionalString2_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "optional_string_2" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasOptionalString2 {
+      get { return optionalString2_ != null; }
+    }
+    /// <summary>Clears the value of the "optional_string_2" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearOptionalString2() {
+      optionalString2_ = null;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object? other) {
@@ -202,6 +229,7 @@ namespace ProtobufNrtAnnotator.Tests.Protos {
       if (RequiredInt != other.RequiredInt) return false;
       if(!repeatedString_.Equals(other.repeatedString_)) return false;
       if (OptionalString != other.OptionalString) return false;
+      if (OptionalString2 != other.OptionalString2) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -213,6 +241,7 @@ namespace ProtobufNrtAnnotator.Tests.Protos {
       if (HasRequiredInt) hash ^= RequiredInt.GetHashCode();
       hash ^= repeatedString_.GetHashCode();
       if (HasOptionalString) hash ^= OptionalString.GetHashCode();
+      if (HasOptionalString2) hash ^= OptionalString2.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -244,6 +273,10 @@ namespace ProtobufNrtAnnotator.Tests.Protos {
         output.WriteRawTag(34);
         output.WriteString(OptionalString);
       }
+      if (HasOptionalString2) {
+        output.WriteRawTag(42);
+        output.WriteString(OptionalString2);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -267,6 +300,10 @@ namespace ProtobufNrtAnnotator.Tests.Protos {
         output.WriteRawTag(34);
         output.WriteString(OptionalString);
       }
+      if (HasOptionalString2) {
+        output.WriteRawTag(42);
+        output.WriteString(OptionalString2);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -286,6 +323,9 @@ namespace ProtobufNrtAnnotator.Tests.Protos {
       size += repeatedString_.CalculateSize(_repeated_repeatedString_codec);
       if (HasOptionalString) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(OptionalString);
+      }
+      if (HasOptionalString2) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(OptionalString2);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -308,6 +348,9 @@ namespace ProtobufNrtAnnotator.Tests.Protos {
       repeatedString_.Add(other.repeatedString_);
       if (other.HasOptionalString) {
         OptionalString = other.OptionalString;
+      }
+      if (other.HasOptionalString2) {
+        OptionalString2 = other.OptionalString2;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -344,6 +387,10 @@ namespace ProtobufNrtAnnotator.Tests.Protos {
             OptionalString = input.ReadString();
             break;
           }
+          case 42: {
+            OptionalString2 = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -377,6 +424,10 @@ namespace ProtobufNrtAnnotator.Tests.Protos {
           }
           case 34: {
             OptionalString = input.ReadString();
+            break;
+          }
+          case 42: {
+            OptionalString2 = input.ReadString();
             break;
           }
         }

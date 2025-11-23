@@ -119,7 +119,7 @@ namespace ProtobufNrtAnnotator.Tests.Protos {
 
     /// <summary>Field number for the "name" field.</summary>
     public const int NameFieldNumber = 1;
-    private string name_ = "";
+    private string? name_ = "";
     /// <summary>
     /// Standard field
     /// </summary>
@@ -681,7 +681,7 @@ namespace ProtobufNrtAnnotator.Tests.Protos {
 
     /// <summary>Field number for the "description" field.</summary>
     public const int DescriptionFieldNumber = 1;
-    private string description_ = "";
+    private string? description_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Description {

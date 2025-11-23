@@ -95,7 +95,7 @@ namespace ProtobufNrtAnnotator.Tests.Protos {
 
     /// <summary>Field number for the "bytes_field" field.</summary>
     public const int BytesFieldFieldNumber = 1;
-    private pb::ByteString bytesField_ = pb::ByteString.Empty;
+    private pb::ByteString? bytesField_ = pb::ByteString.Empty;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public pb::ByteString BytesField {

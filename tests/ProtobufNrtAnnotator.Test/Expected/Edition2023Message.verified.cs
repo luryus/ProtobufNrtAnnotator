@@ -119,7 +119,7 @@ namespace ProtobufNrtAnnotator.Tests.Protos {
     public const int NameFieldNumber = 2;
     private readonly static string NameDefaultValue = "";
 
-    private string name_;
+    private string? name_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Name {

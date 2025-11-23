@@ -31,3 +31,8 @@ message TestMessage {
 message NestedMessage {
   string description = 1;
 }
+
+message MsgWithOptionalFields {
+  optional string a = 1;
+  optional bytes  b = 2;
+}

@@ -107,7 +107,7 @@ namespace ProtobufNrtAnnotator.Tests.Protos {
 
     /// <summary>Field number for the "outer_value" field.</summary>
     public const int OuterValueFieldNumber = 2;
-    private string outerValue_ = "";
+    private string? outerValue_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string OuterValue {
@@ -354,7 +354,7 @@ namespace ProtobufNrtAnnotator.Tests.Protos {
 
         /// <summary>Field number for the "middle_value" field.</summary>
         public const int MiddleValueFieldNumber = 2;
-        private string middleValue_ = "";
+        private string? middleValue_ = "";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public string MiddleValue {
@@ -589,7 +589,7 @@ namespace ProtobufNrtAnnotator.Tests.Protos {
 
             /// <summary>Field number for the "inner_value" field.</summary>
             public const int InnerValueFieldNumber = 1;
-            private string innerValue_ = "";
+            private string? innerValue_ = "";
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
             public string InnerValue {

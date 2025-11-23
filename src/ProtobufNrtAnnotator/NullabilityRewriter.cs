@@ -33,26 +33,11 @@ internal class NullabilityRewriter(Dictionary<int, bool> nullabilityDecisions) :
             {
                 bool isNullable = ShouldPropertyBeNullable(property, property.Type, semanticModel);
                 decisions[property.SpanStart] = isNullable;
-
-                if (isNullable)
-                {
-                    var backingFieldName = GetBackingFieldName(property);
-                    if (backingFieldName != null && fieldMap.TryGetValue(backingFieldName, out var field))
-                    {
-                        decisions[field.SpanStart] = true;
-                    }
-                }
             }
             
             // Analyze fields
             foreach (var field in classDecl.Members.OfType<FieldDeclarationSyntax>())
             {
-                // If already decided (via property), keep it
-                if (decisions.ContainsKey(field.SpanStart) && decisions[field.SpanStart])
-                {
-                    continue;
-                }
-                
                 decisions[field.SpanStart] = ShouldFieldBeNullable(field, semanticModel);
             }
         }
@@ -197,7 +182,7 @@ internal class NullabilityRewriter(Dictionary<int, bool> nullabilityDecisions) :
         }
 
         // Handle ByteString - similar to strings
-        if (typeSymbol.Name == "ByteString" && typeSymbol.ContainingNamespace?.ToDisplayString() == "Google.Protobuf")
+        if (IsByteString(typeSymbol))
         {
             // Check setter for CheckNotNull - if present, ByteString is required (non-nullable)
             var setter = property.AccessorList?.Accessors
@@ -239,8 +224,20 @@ internal class NullabilityRewriter(Dictionary<int, bool> nullabilityDecisions) :
             i.ContainingNamespace.ToDisplayString() == "Google.Protobuf");
     }
 
+    private static bool IsByteString(ITypeSymbol typeSymbol)
+    {
+        return typeSymbol.Name == "ByteString"
+            && typeSymbol.ContainingNamespace?.ToDisplayString() == "Google.Protobuf";
+    }
+
     private static bool ShouldFieldBeNullable(FieldDeclarationSyntax field, SemanticModel semanticModel)
     {
+        // Exclude static fields
+        if (field.Modifiers.Any(m => m.IsKind(SyntaxKind.StaticKeyword)))
+        {
+            return false;
+        }
+
         // Check if this is the _unknownFields field (common in protobuf generated code)
         var variables = field.Declaration.Variables;
         if (variables.Any(variable => variable.Identifier.Text == "_unknownFields"))
@@ -250,11 +247,27 @@ internal class NullabilityRewriter(Dictionary<int, bool> nullabilityDecisions) :
 
         // Check for IMessage
         var typeInfo = semanticModel.GetTypeInfo(field.Declaration.Type);
-        if (typeInfo.Type != null && ImplementsIMessage(typeInfo.Type))
+        if (typeInfo.Type != null)
         {
-            return true;
-        }
+            if (ImplementsIMessage(typeInfo.Type))
+            {
+                return true;
+            }
 
+            // All string backing fields are nullable, even if the properties aren't
+            if (typeInfo.Type.SpecialType == SpecialType.System_String)
+            {
+                return true;
+            }
+
+            // ByteStrings as well
+            if (IsByteString(typeInfo.Type))
+            {
+                return true;
+            }
+    
+        }
+        
         return false;
     }
 
@@ -278,47 +291,5 @@ internal class NullabilityRewriter(Dictionary<int, bool> nullabilityDecisions) :
             "MergeFrom" => true,
             _ => false
         };
-    }
-
-    private static string? GetBackingFieldName(PropertyDeclarationSyntax property)
-    {
-        // Check expression body: public string Foo => _foo;
-        if (property.ExpressionBody != null)
-        {
-             return GetIdentifierName(property.ExpressionBody.Expression);
-        }
-
-        // Check accessor list
-        if (property.AccessorList != null)
-        {
-            var getAccessor = property.AccessorList.Accessors.FirstOrDefault(a => a.IsKind(SyntaxKind.GetAccessorDeclaration));
-            if (getAccessor != null)
-            {
-                // get => _foo;
-                if (getAccessor.ExpressionBody != null)
-                {
-                    return GetIdentifierName(getAccessor.ExpressionBody.Expression);
-                }
-                // get { return _foo; }
-                if (getAccessor.Body != null)
-                {
-                    var returnStatement = getAccessor.Body.Statements.OfType<ReturnStatementSyntax>().FirstOrDefault();
-                    if (returnStatement != null)
-                    {
-                        return GetIdentifierName(returnStatement.Expression);
-                    }
-                }
-            }
-        }
-        return null;
-    }
-
-    private static string? GetIdentifierName(ExpressionSyntax? expression)
-    {
-        if (expression is IdentifierNameSyntax identifierName)
-        {
-            return identifierName.Identifier.Text;
-        }
-        return null;
     }
 }

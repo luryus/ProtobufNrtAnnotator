@@ -25,17 +25,18 @@ public class NuGetPackageIntegrationTests : IntegrationTestBase
         Assert.True(0 == buildResult.ExitCode, "build failed: " + buildResult.Output);
         Assert.Contains("Build succeeded", buildResult.Output);
         
-        // Step 3: Verify expected nullability warnings were emitted
-        var warnings = ParseWarnings(buildResult.Output);
-        
         // CS8625: Cannot convert null literal to non-nullable reference type
-        Assert.Contains("CS8625", warnings);
+        Assert.Contains("WarningTests.cs(12,20): warning CS8625", buildResult.Output);
+        Assert.Contains("WarningTests.cs(13,21): warning CS8625", buildResult.Output);
+        Assert.Contains("WarningTests.cs(13,21): warning CS8625", buildResult.Output);
+        Assert.Contains("WarningTests.cs(19,22): warning CS8625", buildResult.Output);
+        Assert.Contains("WarningTests.cs(19,30): warning CS8625", buildResult.Output);
         
         // CS8602: Dereference of a possibly null reference
-        Assert.Contains("CS8602", warnings);
+        Assert.Contains("WarningTests.cs(16,9): warning CS8602", buildResult.Output);
+        Assert.Contains("WarningTests.cs(22,9): warning CS8602", buildResult.Output);
         
-        var warningsSummary = string.Join(", ", warnings.OrderBy(w => w));
-        Assert.True(warnings.Count >= 2, 
-            $"Expected at least 2 different warning types, but found {warnings.Count}: {warningsSummary}");
+        // The other file should have no warnings
+        Assert.DoesNotMatch(@"PartialClassConstructorTest.cs\(.*\): warning", buildResult.Output);
     }
 }

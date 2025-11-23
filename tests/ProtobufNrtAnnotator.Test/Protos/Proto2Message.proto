@@ -7,4 +7,5 @@ message Proto2Message {
   required int32 required_int = 2;
   repeated string repeated_string = 3;
   optional string optional_string = 4 [default = "default"];
+  optional string optional_string_2 = 5;
 }

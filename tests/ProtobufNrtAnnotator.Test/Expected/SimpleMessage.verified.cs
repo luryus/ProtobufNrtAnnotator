@@ -91,7 +91,7 @@ namespace ProtobufNrtAnnotator.Tests.Protos {
 
     /// <summary>Field number for the "name" field.</summary>
     public const int NameFieldNumber = 1;
-    private string name_ = "";
+    private string? name_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string Name {
@@ -127,7 +127,7 @@ namespace ProtobufNrtAnnotator.Tests.Protos {
 
     /// <summary>Field number for the "content" field.</summary>
     public const int ContentFieldNumber = 4;
-    private pb::ByteString content_ = pb::ByteString.Empty;
+    private pb::ByteString? content_ = pb::ByteString.Empty;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public pb::ByteString Content {

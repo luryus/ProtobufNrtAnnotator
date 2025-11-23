@@ -80,25 +80,6 @@ public abstract class IntegrationTestBase : IDisposable
     }
     
     /// <summary>
-    /// Parses MSBuild output for warning codes
-    /// </summary>
-    protected static List<string> ParseWarnings(string buildOutput)
-    {
-        var warnings = new List<string>();
-        
-        // Match patterns like "warning CS8625:" or "WarningTests.cs(12,24): warning CS8625:"
-        var warningPattern = new Regex(@"warning (CS\d+):", RegexOptions.Multiline);
-        var matches = warningPattern.Matches(buildOutput);
-        
-        foreach (Match match in matches)
-        {
-            warnings.Add(match.Groups[1].Value);
-        }
-        
-        return warnings.Distinct().ToList();
-    }
-    
-    /// <summary>
     /// Runs a dotnet command and returns the result
     /// </summary>
     private async Task<BuildResult> RunDotNetCommandAsync(string command, string workingDirectory, params string[] args)
