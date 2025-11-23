@@ -17,7 +17,7 @@ Add the package to your project alongside `Grpc.Tools` and `Google.Protobuf`:
   <PackageReference Include="Google.Protobuf" Version="..." />
   <PackageReference Include="Grpc.Tools" Version="..." PrivateAssets="All" />
 
-  <PackageReference Include="ProtobufNrtAnnotator" Version="0.3.0">
+  <PackageReference Include="ProtobufNrtAnnotator" Version="0.4.0">
     <IncludeAssets>build</IncludeAssets>
     <PrivateAssets>all</PrivateAssets>
   </PackageReference>
