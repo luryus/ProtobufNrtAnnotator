@@ -23,16 +23,17 @@ jobs:
     
     - name: Restore dependencies
       run: dotnet restore
-    
-    - name: Build
-      run: dotnet build --no-restore --configuration Release
-    
-    - name: Test
-      run: dotnet test --no-build --configuration Release --verbosity normal
-    
+
+    - name: Build and test
+      uses: cake-build/cake-action@v3
+      with:
+        target: Test
+
     - name: Pack
-      run: dotnet pack src/ProtobufNrtAnnotator/ProtobufNrtAnnotator.csproj --no-build --configuration Release --output ./nupkg
-    
+      uses: cake-build/cake-action@v3
+      with:
+        target: PackageNuget
+
     - name: Get NuGet API key via OIDC
       uses: NuGet/login@v1
       id: nuget-login

@@ -47,7 +47,7 @@ This project uses GitHub Actions to automatically build, test, and publish to Nu
 
 1. **Bump the version** using Cake:
    ```bash
-   dotnet cake --target=Bump-Version --target-version=0.2.0
+   dotnet cake --target=BumpVersion --target-version=0.2.0
    ```
 
    This will automatically update `Directory.Build.props`, `Directory.Packages.props`, and `README.md`.

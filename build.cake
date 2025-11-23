@@ -1,13 +1,49 @@
-var target = Argument("target", "Default");
+var target = Argument("target", "Build");
 var targetVersion = Argument("target-version", "");
+var configuration = Argument("configuration", "Release");
 
-Task("Default")
-    .Does(() =>
+Task("Clean")
+    .Does(() => 
 {
-    Information("Hello World!");
+    CleanDirectories("*/**/bin");
+    CleanDirectories("*/**/obj");
 });
 
-Task("Bump-Version")
+Task("Build")
+    .Does(() =>
+{
+    DotNetBuild("./ProtobufNrtAnnotator.sln", new DotNetBuildSettings
+    {
+        Configuration = configuration,
+    });
+});
+
+Task("Test")
+    .IsDependentOn("Build")
+    .Does(() =>
+{
+    DotNetTest("./ProtobufNrtAnnotator.sln", new DotNetTestSettings
+    {
+        Configuration = configuration,
+        NoBuild = true,
+    });
+});
+
+Task("PackageNuget")
+    .IsDependentOn("Clean")
+    .Does(() =>
+{
+    DotNetPack("./src/ProtobufNrtAnnotator/ProtobufNrtAnnotator.csproj",
+        new DotNetPackSettings
+        {
+            Configuration = configuration,
+            OutputDirectory = "./nupkg"
+        });
+
+    Information("Nuget package saved to ./nupkg");
+});
+
+Task("BumpVersion")
     .Does(() =>
 {
     if (string.IsNullOrEmpty(targetVersion))
