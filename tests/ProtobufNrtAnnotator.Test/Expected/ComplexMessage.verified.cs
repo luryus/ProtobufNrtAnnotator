@@ -276,7 +276,7 @@ namespace ProtobufNrtAnnotator.Tests.Protos {
 
     /// <summary>Field number for the "nested" field.</summary>
     public const int NestedFieldNumber = 10;
-    private global::ProtobufNrtAnnotator.Tests.Protos.NestedMessage nested_;
+    private global::ProtobufNrtAnnotator.Tests.Protos.NestedMessage? nested_;
     /// <summary>
     /// Nested message
     /// </summary>

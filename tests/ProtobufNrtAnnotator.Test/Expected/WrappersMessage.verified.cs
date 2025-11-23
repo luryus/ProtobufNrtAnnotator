@@ -204,7 +204,7 @@ namespace ProtobufNrtAnnotator.Tests.Protos {
     /// <summary>Field number for the "string_value" field.</summary>
     public const int StringValueFieldNumber = 8;
     private static readonly pb::FieldCodec<string> _single_stringValue_codec = pb::FieldCodec.ForClassWrapper<string>(66);
-    private string stringValue_;
+    private string? stringValue_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string? StringValue {
@@ -218,7 +218,7 @@ namespace ProtobufNrtAnnotator.Tests.Protos {
     /// <summary>Field number for the "bytes_value" field.</summary>
     public const int BytesValueFieldNumber = 9;
     private static readonly pb::FieldCodec<pb::ByteString> _single_bytesValue_codec = pb::FieldCodec.ForClassWrapper<pb::ByteString>(74);
-    private pb::ByteString bytesValue_;
+    private pb::ByteString? bytesValue_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public pb::ByteString? BytesValue {

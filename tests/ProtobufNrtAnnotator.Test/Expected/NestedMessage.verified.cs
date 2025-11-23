@@ -95,7 +95,7 @@ namespace ProtobufNrtAnnotator.Tests.Protos {
 
     /// <summary>Field number for the "middle" field.</summary>
     public const int MiddleFieldNumber = 1;
-    private global::ProtobufNrtAnnotator.Tests.Protos.OuterMessage.Types.MiddleMessage middle_;
+    private global::ProtobufNrtAnnotator.Tests.Protos.OuterMessage.Types.MiddleMessage? middle_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::ProtobufNrtAnnotator.Tests.Protos.OuterMessage.Types.MiddleMessage? Middle {
@@ -342,7 +342,7 @@ namespace ProtobufNrtAnnotator.Tests.Protos {
 
         /// <summary>Field number for the "inner" field.</summary>
         public const int InnerFieldNumber = 1;
-        private global::ProtobufNrtAnnotator.Tests.Protos.OuterMessage.Types.MiddleMessage.Types.InnerMessage inner_;
+        private global::ProtobufNrtAnnotator.Tests.Protos.OuterMessage.Types.MiddleMessage.Types.InnerMessage? inner_;
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public global::ProtobufNrtAnnotator.Tests.Protos.OuterMessage.Types.MiddleMessage.Types.InnerMessage? Inner {
@@ -602,7 +602,7 @@ namespace ProtobufNrtAnnotator.Tests.Protos {
             /// <summary>Field number for the "inner_nullable_value" field.</summary>
             public const int InnerNullableValueFieldNumber = 2;
             private static readonly pb::FieldCodec<string> _single_innerNullableValue_codec = pb::FieldCodec.ForClassWrapper<string>(18);
-            private string innerNullableValue_;
+            private string? innerNullableValue_;
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
             [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
             public string? InnerNullableValue {

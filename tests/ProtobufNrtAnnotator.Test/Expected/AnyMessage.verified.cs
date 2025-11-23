@@ -94,7 +94,7 @@ namespace ProtobufNrtAnnotator.Tests.Protos {
 
     /// <summary>Field number for the "any_value" field.</summary>
     public const int AnyValueFieldNumber = 1;
-    private global::Google.Protobuf.WellKnownTypes.Any anyValue_;
+    private global::Google.Protobuf.WellKnownTypes.Any? anyValue_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::Google.Protobuf.WellKnownTypes.Any? AnyValue {

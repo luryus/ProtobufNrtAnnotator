@@ -255,7 +255,7 @@ namespace ProtobufNrtAnnotator.Tests.GrpcProtos {
     /// <summary>Field number for the "text" field.</summary>
     public const int TextFieldNumber = 1;
     private static readonly pb::FieldCodec<string> _single_text_codec = pb::FieldCodec.ForClassWrapper<string>(10);
-    private string text_;
+    private string? text_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public string? Text {
